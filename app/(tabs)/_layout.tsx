@@ -1,3 +1,4 @@
+import { COLOR } from "@/constanst/color";
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
@@ -6,11 +7,11 @@ const TabLayouts = () => {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "#94a3b8",
+        tabBarActiveTintColor: COLOR.active,
+        tabBarInactiveTintColor: COLOR.inactive,
         tabBarStyle: {
-          backgroundColor: "lightgray",
-          borderTopColor: "green",
+          backgroundColor: COLOR.white,
+          borderTopColor: COLOR.border,
           borderWidth: 1,
           paddingBottom: 0,
           paddingTop: 20,
