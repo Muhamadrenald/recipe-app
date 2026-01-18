@@ -27,15 +27,35 @@ const HomeScreen = () => {
         <Text style={{ fontSize: 30, fontWeight: "bold", marginTop: 20 }}>
           List Recipe
         </Text>
-        <Link style={{ fontSize: 20, color: "blue" }} href={"/recipe/1"}>
-          Go to Recipe 1
-        </Link>
-        <Link style={{ fontSize: 20, color: "blue" }} href={"/recipe/2"}>
-          Go to Recipe 2
-        </Link>
-        <Link style={{ fontSize: 20, color: "blue" }} href={"/recipe/3"}>
-          Go to Recipe 3
-        </Link>
+        <View
+          style={{
+            flex: 1,
+            alignItems: "flex-start",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            width: "100%",
+            marginTop: 20,
+          }}
+        >
+          <Link
+            style={{ fontSize: 20, color: "blue", backgroundColor: "red" }}
+            href={"/recipe/1"}
+          >
+            Recipe 1
+          </Link>
+          <Link
+            style={{ fontSize: 20, color: "blue", backgroundColor: "lime" }}
+            href={"/recipe/2"}
+          >
+            Go Recipe 20
+          </Link>
+          <Link
+            style={{ fontSize: 20, color: "blue", backgroundColor: "green" }}
+            href={"/recipe/3"}
+          >
+            Go to Recipe 300
+          </Link>
+        </View>
       </View>
     </LinearGradient>
   );
