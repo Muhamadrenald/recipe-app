@@ -1,17 +1,25 @@
 import { COLOR } from "@/constanst/color";
 import React, { FC } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface Props {
   name: string;
+  handleChangeRecipe: (name: string) => void;
+  selectedName: string;
 }
 
-const TagItem: FC<Props> = ({ name }) => {
+const TagItem: FC<Props> = ({ name, handleChangeRecipe, selectedName }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.badge}>
-        <Text style={styles.badgeText}>{name}</Text>
-      </View>
+      <TouchableOpacity onPress={() => handleChangeRecipe(name)}>
+        <View
+          style={[
+            name === selectedName ? styles.badgeActive : styles.badgeDeactive,
+          ]}
+        >
+          <Text style={styles.badgeText}>{name}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -22,7 +30,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  badge: {
+  badgeActive: {
+    backgroundColor: COLOR.active,
+    borderRadius: 25,
+    padding: 15,
+    elevation: 5,
+  },
+  badgeDeactive: {
     backgroundColor: COLOR.inactive,
     borderRadius: 25,
     padding: 15,

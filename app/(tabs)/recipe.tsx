@@ -10,13 +10,20 @@ import { FlatList, View } from "react-native";
 const RecipeScreen = () => {
   const [recipes, setRecipes] = useState<any[]>([]);
   const [tags, setTags] = useState<string[]>([]);
+  const [name, setName] = useState<string>("");
 
   const getRecipes = async () => {
-    const { data } = await axios.get(
-      "https://dummyjson.com/recipes?limit=50&select=id,name,image,cookTimeMinutes",
-    );
-
-    setRecipes(data.recipes);
+    if (!name) {
+      const { data } = await axios.get(
+        "https://dummyjson.com/recipes?limit=50&select=id,name,image,cookTimeMinutes",
+      );
+      setRecipes(data.recipes);
+    } else {
+      const { data } = await axios.get(
+        `https://dummyjson.com/recipes/tag/${name}`,
+      );
+      setRecipes(data.recipes);
+    }
   };
 
   const getTags = async () => {
@@ -24,10 +31,14 @@ const RecipeScreen = () => {
     setTags(data);
   };
 
+  const handleChangeRecipe = async (name: string) => {
+    setName(name);
+  };
+
   useEffect(() => {
     getRecipes();
     getTags();
-  }, []);
+  }, [name]);
 
   return (
     <LinearGradient
@@ -39,7 +50,13 @@ const RecipeScreen = () => {
       <View>
         <FlatList
           data={tags}
-          renderItem={({ item }) => <TagItem name={item} />}
+          renderItem={({ item }) => (
+            <TagItem
+              name={item}
+              handleChangeRecipe={handleChangeRecipe}
+              selectedName={name}
+            />
+          )}
           keyExtractor={(item) => item}
           horizontal
           contentContainerStyle={{ gap: 8 }}
