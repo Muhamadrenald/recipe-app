@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
   },
   title: {
     // fontSize: 20,
-    fontSize: 26,
+    fontSize: 28,
     fontWeight: "800",
     color: COLOR.secondary,
     // letterSpacing: 5,
-    letterSpacing: 3,
+    letterSpacing: 4,
   },
 });
