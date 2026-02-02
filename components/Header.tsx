@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: "400",
+    fontWeight: "500",
     color: COLOR.secondary,
     letterSpacing: 5,
   },
