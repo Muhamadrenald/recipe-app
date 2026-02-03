@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "800",
-    color: COLOR.secondary,
+    color: COLOR.primary,
     letterSpacing: 5,
   },
 });
