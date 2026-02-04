@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "800",
     color: COLOR.secondary,
-    letterSpacing: 3,
+    letterSpacing: 5,
   },
 });
