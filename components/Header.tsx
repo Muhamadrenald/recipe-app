@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   title: {
-    fontSize: 31,
+    fontSize: 32,
     fontWeight: "800",
     color: COLOR.secondary,
     letterSpacing: 5,
